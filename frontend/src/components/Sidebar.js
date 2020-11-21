@@ -6,9 +6,9 @@ class Sidebar extends Component {
         return (
             <div className="Sidebar">
                 <Nav className="flex-column">
-                    <Nav.Link href="/polygons">My Polygons</Nav.Link>
-                    <Nav.Link href="/sensors">My Sensors</Nav.Link>
-                    <Nav.Link href="/analysis">Recommendations</Nav.Link>
+                    <Nav.Link className="Sidebar-item" href="/polygons">My Polygons</Nav.Link>
+                    <Nav.Link className="Sidebar-item" href="/sensors">My Sensors</Nav.Link>
+                    <Nav.Link className="Sidebar-item" href="/analysis">Recommendations</Nav.Link>
                 </Nav>
             </div>
         );
