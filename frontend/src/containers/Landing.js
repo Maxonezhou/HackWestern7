@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom"; 
 
 import image from '../images/home.svg';
-import dotimage from '../images/'
+import dotimage from '../images/dots.png'
 
 class Landing extends Component {
   render() {
