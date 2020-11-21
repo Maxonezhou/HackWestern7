@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import Landing from './containers/Landing';
+import Layout from './containers/Layout';
+import Polygons from './containers/Polygons';
+import Sensors from './containers/Sensors';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App>
+        <Switch>
+          <Route exact path="/polygons" render={(props) => <Layout childComponent={<Polygons {...props}/>} {...props} />}/>
+          <Route exact path="/sensors" render={(props) => <Layout childComponent={<Sensors {...props}/>} {...props} />}/>
+          <Route path="/" component={Landing} />
+        </Switch>
+      </App>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
