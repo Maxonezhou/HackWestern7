@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import './index.css';
 import App from './App';
 import Landing from './containers/Landing';
 import Layout from './containers/Layout';
 import Polygons from './containers/Polygons';
 import Sensors from './containers/Sensors';
 import reportWebVitals from './reportWebVitals';
+import "./sass/__index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
