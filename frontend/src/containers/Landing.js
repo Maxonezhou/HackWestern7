@@ -10,6 +10,8 @@ class Landing extends Component {
       <div className="Home-wrap">
           <div className="Image-wrap">
             <img className="Home-image" src={image} />
+            <img className="dot-image" src={dotimage} />
+            <img className="dot-image2" src={dotimage} />
           </div>
           <div className="Home">
             <div className="Text">

@@ -16,6 +16,18 @@
   width: 30vw;
 }
 
+.dot-image {
+  position: absolute;
+  left: -5%;
+  bottom: 10%;
+}
+
+.dot-image2 {
+  position: absolute;
+  right: 0%;
+  top: 0%;
+}
+
 .Home {
   display: flex;
   flex-direction: column;

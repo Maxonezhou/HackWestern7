@@ -1,9 +1,13 @@
 .Sidebar {
     padding: 0.5em 3em;
-    display: flex;
-    width: max-content;
+    display: inline-block;
+    width: 30%;
 
     .Sidebar-item {
-        
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: bold;
+        margin-bottom: 1em;
+        color: purple;
     }
 }
