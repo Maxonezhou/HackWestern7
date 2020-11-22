@@ -88,7 +88,7 @@ class Sensors extends Component {
               <div className = "TVOC SensorContainer">
                 <div className = "SensorTitle"> TVOC </div>
                 <p className = "SensorDesc">
-                  By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light 
+                  By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light. 
                 </p>
                 <ReactApexChart
                   options={this.state.options}
