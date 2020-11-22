@@ -32,6 +32,8 @@ func createPolygonID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	polygonName := r.URL.Query().Get("polygonName")
+
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		fmt.Fprintln(w, "Invalid request")
@@ -60,7 +62,7 @@ func createPolygonID(w http.ResponseWriter, r *http.Request) {
 	coordsList = append(coordsList, coords)
 
 	var reqBody = RequestBody{}
-	reqBody.Name = "Polygon Test"
+	reqBody.Name = polygonName
 	reqBody.GeoJSON.Type = "Feature"
 	reqBody.GeoJSON.Geometry.Type = "Polygon"
 	reqBody.GeoJSON.Geometry.Coordinates = coordsList
