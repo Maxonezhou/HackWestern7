@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom"; 
 
 import image from '../images/home.svg';
-import dotimage from '../images/dots.png'
-import dotimage4 from '../images/dots4.png'
+import squareimage from '../images/squares.png'
+import squareimage2 from '../images/squares2.png'
 
 class Landing extends Component {
   render() {
@@ -11,13 +11,13 @@ class Landing extends Component {
       <div className="Home-wrap">
           <div className="Image-wrap">
             <img className="Home-image" src={image} />
-            <img className="dot-image" src={dotimage} />
-            <img className="dot-image4" src={dotimage4} />
+            <img className="squareimage" src={squareimage} />
+            <img className="squareimage2" src={squareimage2} />
           </div>
           <div className="Home">
             <div className="Text">
               <h1 className="Title1">
-                <span className="Welcome">Welcome</span> to Placeholder styll, ok this man's a bean
+                <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">Perfarmance </span>
               </h1>
               <h2 className="Title2">
                 We use modern technologies to help small-scale farmers grow.

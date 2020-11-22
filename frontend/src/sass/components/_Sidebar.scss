@@ -3,7 +3,12 @@
     display: flex;
     width: max-content;
     position: relative;
+    background-color: #382d45;
+    height: 100vh;
 
+    .Sidebar-Tabs {
+        width: 8vw;
+    }
 
     .Sidebar-link {
         padding: 0.5em 1em;
@@ -13,9 +18,10 @@
         font-size: 16px;
         line-height: 18px;
         font-weight: bold;
+        color: #d3cca8;
         &.active {
-            color: blue;
-            background: grey;
+            color: #382d45;
+            background: #d3cca8;
             border-radius: 3px;
         }
     }

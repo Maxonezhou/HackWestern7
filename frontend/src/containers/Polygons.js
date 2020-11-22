@@ -4,8 +4,9 @@ class Polygons extends Component {
   render() {
     return (
       <div className = "Polygons">
-          Max is so hot
-          <Map/>
+          <h1 className = "PolygonsTitle1">
+            Draw a polygon on the map below to analyze.
+          </h1>
       </div>
     );
   }
