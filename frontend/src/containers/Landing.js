@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import image from '../images/home.svg';
 import squareimage from '../images/squares.png'
-import squareimage2 from '../images/squares2.png'
+import squareimage2 from '../images/squares3.png'
 
 class Landing extends Component {
   render() {
