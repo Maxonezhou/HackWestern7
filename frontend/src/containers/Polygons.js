@@ -7,6 +7,7 @@ class Polygons extends Component {
           <h1 className = "PolygonsTitle1">
             Draw a polygon on the map below to analyze.
           </h1>
+          <Map/>
       </div>
     );
   }
