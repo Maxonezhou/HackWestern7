@@ -23,7 +23,7 @@ class Landing extends Component {
                 Data-driven agriculture for developing farms.
               </h2>
               <div className="Btn-wrap">
-                <Link to="/polygons" className="Title-Btn">
+                <Link to="/map" className="Title-Btn">
                   Let's get started!
                   <i className="fa fa-arrow-right hvr-forward btn-arrow"></i>
                 </Link>

@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import App from './App';
 import Landing from './containers/Landing';
 import Layout from './containers/Layout';
+import PolygonMap from './containers/PolygonMap';
 import Polygons from './containers/Polygons';
 import Sensors from './containers/Sensors';
 import Analysis from './containers/Analysis';
@@ -15,6 +16,7 @@ ReactDOM.render(
     <BrowserRouter>
       <App>
         <Switch>
+          <Route exact path="/map" render={(props) => <Layout childComponent={<PolygonMap {...props}/>} {...props} />}/>
           <Route exact path="/polygons" render={(props) => <Layout childComponent={<Polygons {...props}/>} {...props} />}/>
           <Route exact path="/sensors" render={(props) => <Layout childComponent={<Sensors {...props}/>} {...props} />}/>
           <Route exact path="/analysis" render={(props) => <Layout childComponent={<Analysis {...props}/>} {...props} />}/>

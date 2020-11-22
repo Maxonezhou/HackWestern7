@@ -52,13 +52,20 @@ class Analysis extends Component {
       
     }    
 
+    pressuresMap.forEach((pressure) => {
+        
+    })
     this.setState({
       pressures: pressuresMap,
       temps: tempsMap,
       clouds: cloudsMap
     })
+    console.log(pressuresMap) // 
+    console.log(tempsMap)
+    console.log(cloudsMap)
+    console.log(vegetationsMap)
   }
-
+  // fixed time data
   render() {
     return (
       <div className = "Analysis">

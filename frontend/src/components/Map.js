@@ -42,13 +42,13 @@ export default class Map extends Component {
     const selectedIndex = this.state.selectedFeatureIndex;
     if (selectedIndex !== null && selectedIndex >= 0) {
         const coordinates = this._editorRef.getFeatures(selectedIndex)[0].geometry.coordinates[0];
-        axios({
-            method: 'post',
-            url: "http://localhost:8000/polygon/create",
-            data: {
+        fetch("http://localhost:8000/polygon/create", {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify({
                 coordinates: coordinates
-            }
-        });
+            })
+        })
     }
       
   }
