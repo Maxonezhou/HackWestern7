@@ -54,4 +54,15 @@
         margin-left: auto;
         margin-right: auto;
     }
+    
+    .SensorFlex {
+        display: flex;
+        flex-direction: row;
+    }
+    .SensorVal {
+        font-size: 2vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin: auto auto;
+    }
 }

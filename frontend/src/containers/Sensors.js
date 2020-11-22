@@ -99,26 +99,30 @@ class Sensors extends Component {
                 <p className = "SensorDesc">
                   Studies have shown that higher concentrations of atmospheric carbon dioxide affect crops in two important ways: they boost crop yields by increasing the rate of photosynthesis, which spurs growth, and they reduce the amount of water crops lose through transpiration.
                 </p>  
-                <ReactApexChart
-                  options={this.getOptions("co2")}
-                  series={co2}
-                  type="line"
-                  width="300"
-                />
-                  {co2[0].data.slice(-1)[0]}
+                <div className = "SensorFlex">
+                  <ReactApexChart
+                    options={this.getOptions("co2")}
+                    series={co2}
+                    type="line"
+                    width="300"
+                  />
+                  <div className = "SensorVal"> {co2[0].data.slice(-1)[0]} ppm </div>
+                </div>
               </div>
               <div className = "TVOC SensorContainer">
                 <div className = "SensorTitle"> TVOC </div>
                 <p className = "SensorDesc">
                   By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light. 
                 </p>
-                <ReactApexChart
-                  options={this.getOptions("tvoc")}
-                  series={tvoc}
-                  type="line"
-                  width="300"
-                />
-                {tvoc[0].data.slice(-1)[0]}
+                <div className = "SensorFlex">
+                  <ReactApexChart
+                    options={this.getOptions("tvoc")}
+                    series={tvoc}
+                    type="line"
+                    width="300"
+                  />
+                  <div className = "SensorVal"> {tvoc[0].data.slice(-1)[0]} ppm</div>
+                </div>
               </div>
             </div>
             <div className = "SensorsDataRow">
@@ -127,26 +131,30 @@ class Sensors extends Component {
                 <p className = "SensorDesc">
                   Atmospheric pressure directly affects precipitation levels, oxygen levels for crop respiration, wind pattern for the transportation of pollen, heating/cooling cycles of the atmosphere, and carbon dioxide levels needed to build biomass for photosynthesis.
                 </p>
-                <ReactApexChart
-                  options={this.getOptions("pressure")}
-                  series={pressure}
-                  type="line"
-                  width="300"
-                />
-                {pressure[0].data.slice(-1)[0]}
+                <div className = "SensorFlex">
+                  <ReactApexChart
+                    options={this.getOptions("pressure")}
+                    series={pressure}
+                    type="line"
+                    width="300"
+                  />
+                  <div className = "SensorVal"> {pressure[0].data.slice(-1)[0]} Inches of Hg </div>
+                </div>
               </div>
               <div className = "Temp SensorContainer">
                 <div className = "SensorTitle"> Temperature </div>
                 <p className = "SensorDesc">
                   Climate change can disrupt food availability, reduce access to food, and affect food quality. For example, projected increases in temperatures, changes in precipitation patterns, changes in extreme weather events, and reductions in water availability may all result in reduced agricultural productivity.
                 </p>
-                <ReactApexChart
-                  options={this.getOptions("temp")}
-                  series={temperature}
-                  type="line"
-                  width="300"
-                />
-                {temperature[0].data.slice(-1)[0]}
+                <div className = "SensorFlex">
+                  <ReactApexChart
+                    options={this.getOptions("temp")}
+                    series={temperature}
+                    type="line"
+                    width="300"
+                  />
+                  <div className = "SensorVal"> {temperature[0].data.slice(-1)[0]} °C</div>
+                </div>
               </div>
             </div>
           </div>
