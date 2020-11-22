@@ -82,7 +82,7 @@ export default class Map extends Component {
       <MapGL
         {...viewport}
         width="100%"
-        height="100%"
+        height="78%"
         mapStyle="mapbox://styles/mapbox/satellite-v9"
         mapboxApiAccessToken={TOKEN}
         onViewportChange={this._updateViewport}

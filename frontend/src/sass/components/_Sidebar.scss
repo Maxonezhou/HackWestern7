@@ -3,7 +3,7 @@
     display: flex;
     width: max-content;
     position: relative;
-    background-color: #382d45;
+    background-color: map-get($theme-colors, dark);;
     height: 100vh;
 
     .Sidebar-Tabs {
@@ -25,10 +25,10 @@
         font-size: 16px;
         line-height: 18px;
         font-weight: bold;
-        color: #d3cca8;
+        color: map-get($theme-colors, light);;
         &.active {
-            color: #382d45;
-            background: #d3cca8;
+            color: map-get($theme-colors, dark);;
+            background: map-get($theme-colors, light);;
             border-radius: 3px;
         }
     }

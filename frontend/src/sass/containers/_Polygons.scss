@@ -1,5 +1,5 @@
 .Polygons {
-    background-color: #d3cca8;
+    background-color: map-get($theme-colors, light);;
     width: 100%;
 
     .PolygonsTitle1 {

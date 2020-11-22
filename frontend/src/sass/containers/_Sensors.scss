@@ -8,16 +8,27 @@
         margin-bottom: 2%;
     }
 
-    .SensorsData {
+    .SensorsDataRow {
         display: flex;
         flex-direction: row;
     }
 
+    SensorsDataCol {
+        display: flex;
+        flex-direction: column;
+    }
+
     .SensorContainer {
-        width: 23%;
-        height: 30vh;
+        height: 40vh;
+        width: 48%;
         border: 3px solid map-get($theme-colors, dark);
         border-radius: 5%;
         margin-left: 1.5%;
+        margin-bottom: 1.5%;
+    }
+
+    .co2chart {
+        margin-left: auto;
+        margin-right: auto;
     }
 }
