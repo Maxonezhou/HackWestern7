@@ -65,11 +65,17 @@ class Sensors extends Component {
         id: id,
         height: 350,
         type: 'line',
-        animations: {
-          enabled: true,
-          easing: 'linear',
-          dynamicAnimation: {
-            speed: 1000
+        colors: ['#546E7A', ''],
+        xaxis: {
+          labels: {
+            show: false
+          }
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: ['green']
+            }
           }
         },
         legend: {
@@ -95,10 +101,11 @@ class Sensors extends Component {
                 </p>  
                 <ReactApexChart
                   options={this.getOptions("co2")}
-                  series={this.state.co2}
+                  series={co2}
                   type="line"
                   width="300"
                 />
+                  {co2[0].data.slice(-1)[0]}
               </div>
               <div className = "TVOC SensorContainer">
                 <div className = "SensorTitle"> TVOC </div>
@@ -107,10 +114,11 @@ class Sensors extends Component {
                 </p>
                 <ReactApexChart
                   options={this.getOptions("tvoc")}
-                  series={this.state.tvoc}
+                  series={tvoc}
                   type="line"
                   width="300"
                 />
+                {tvoc[0].data.slice(-1)[0]}
               </div>
             </div>
             <div className = "SensorsDataRow">
@@ -121,10 +129,11 @@ class Sensors extends Component {
                 </p>
                 <ReactApexChart
                   options={this.getOptions("pressure")}
-                  series={this.state.pressure}
+                  series={pressure}
                   type="line"
                   width="300"
                 />
+                {pressure[0].data.slice(-1)[0]}
               </div>
               <div className = "Temp SensorContainer">
                 <div className = "SensorTitle"> Temperature </div>
@@ -133,10 +142,11 @@ class Sensors extends Component {
                 </p>
                 <ReactApexChart
                   options={this.getOptions("temp")}
-                  series={this.state.temperature}
+                  series={temperature}
                   type="line"
                   width="300"
                 />
+                {temperature[0].data.slice(-1)[0]}
               </div>
             </div>
           </div>
