@@ -82,6 +82,8 @@ func createPolygonID(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusCreated)
 	fmt.Fprintln(w, string(responseData))
 }
@@ -102,6 +104,8 @@ func getListofPolygons(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, string(responseData))
 }
@@ -126,11 +130,14 @@ func removePolygon(w http.ResponseWriter, r *http.Request) {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 204 {
+		w.WriteHeader(http.StatusBadRequest)
 		fmt.Fprintln(w, "Polygon with id:"+polygonID+" was not deleted")
 		return
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, "Polygon with id:"+polygonID+" was deleted")
 }
@@ -177,6 +184,8 @@ func getUltraVioletIndex(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, string(responseData))
 }
@@ -228,6 +237,8 @@ func getHistoricalWeather(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, string(historicalDataJSON))
 }
