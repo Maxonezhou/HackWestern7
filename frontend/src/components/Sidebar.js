@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
 
+import logo from '../images/logo.png';
+
 class Sidebar extends Component {
     active = (pathName) => {
         return window.location.pathname.indexOf(pathName) !== -1 ? "active" : "";
@@ -10,6 +12,7 @@ class Sidebar extends Component {
         return (
             <div className="Sidebar">
                 <Nav className="Sidebar-Tabs flex-column">
+                    <img className="logo" src={logo} />
                     <Nav.Link className="Sidebar-link"  href="/">Home</Nav.Link>
                     <Nav.Link active={this.active("polygons")} className="Sidebar-link"  href="/polygons">My Polygons</Nav.Link>
                     <Nav.Link active={this.active("sensors")} className="Sidebar-link" href="/sensors">My Sensors</Nav.Link>
