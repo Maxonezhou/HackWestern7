@@ -16,15 +16,18 @@
   width: 30vw;
 }
 
-.dot-image {
+.squareimage {
+  width: 5vw;
   position: absolute;
-  left: -5%;
-  bottom: 10%;
+  left: -1%;
+  top: 5%;
 }
 
-.dot-image4 {
-  //position: absolute;
-  //border: 2px solid black;
+.squareimage2 {
+  width: 5vw;
+  position: absolute;
+  right: 0%;
+  bottom: 1%;
 }
 
 .Home {
@@ -40,7 +43,7 @@
 }
 
 .Title1 {
-  width: 40vw;
+  width: 50vw;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -51,6 +54,11 @@
 
 .Welcome {
   color: #d3cca8;
+}
+
+.Perfarmance {
+  background-color: #d3cca8;
+  color: #382d45;
 }
 
 .Title2 {
@@ -79,6 +87,22 @@
   width: 12vw;
   margin-left: auto;
   margin-right: auto;
+}
+
+.Title-Btn:hover {
+  background-color: #d3cca8;
+  //animation: fade 1s;
+  text-decoration: none;
+  color: #382d45;
+}
+
+@keyframes fade{
+  from {
+    background-color: #382d45;
+  }
+  to {
+    background-color: #d3cca8;
+  }
 }
 
 .fa-arrow-right {
