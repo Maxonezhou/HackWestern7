@@ -31,6 +31,12 @@ class Sensors extends Component {
           name: "pressure",
           data: []
         }],
+        series: [
+          {
+            name: "series-1",
+            data: [30, 40, 45, 50, 49, 60, 70, 91]
+          }
+        ]
       };
   }
 
@@ -39,24 +45,33 @@ class Sensors extends Component {
     // console.log();
     const arduinoRef = firebase.database().ref('Arduino Data');
     arduinoRef.limitToLast(1).on('value', querySnapshot => {
+      console.log("test")
       const data = querySnapshot.val();
       const { temperature, tvoc, co2, pressure } = this.state; 
-      const newTemp = this.state.temperature;
+      const newTempData = this.state.series[0].data;
+      const newCo2 = this.state.co2;
       for( const [key, value] of Object.entries(data)) {
         // console.log(value);
-        newTemp[0].data.push(parseInt(value.temp))
+        newTempData.push(parseInt(value.temp))
         // temperature[0].data.push(parseInt(value.temp));
         // temperature.slice(Math.max(temperature.length - 5, 0));
         tvoc[0].data.push(parseInt(value.tvoc));
-        co2[0].data.push(parseInt(value.c02));
+        newCo2[0].data.push(parseInt(value.c02));
         pressure[0].data.push(parseInt(value.pressure));
       }
       // console.log(tempera/ture);
+      console.log(newCo2)
+      // this.setState({
+      //   temperature: newTemp, 
+      //   tvoc, 
+      //   co2: newCo2,
+      //   pressure
+      // })
       this.setState({
-        temperature: newTemp, 
-        tvoc, 
-        co2: co2,
-        pressure
+        series: [{
+          ...this.state.series[0],
+          data: newTempData
+        }]
       })
       // temperature.push(data.)  
         // console.log(querySnapshot.val());
@@ -65,7 +80,7 @@ class Sensors extends Component {
   render() {
     const { temperature, tvoc, co2, pressure } = this.state;
     console.log("fsfsf")
-    
+    console.log(this.state.co2)
     return (
       <div className = "Sensors">
           <h1 className = "SensorsTitle1">
@@ -92,7 +107,7 @@ class Sensors extends Component {
                 </p>
                 <ReactApexChart
                   options={this.state.options}
-                  series={this.state.tvoc}
+                  series={this.state.series}
                   type="line"
                   width="300"
                 />
