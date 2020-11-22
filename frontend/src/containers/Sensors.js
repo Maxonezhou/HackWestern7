@@ -89,7 +89,10 @@ class Sensors extends Component {
           <div className = "SensorsDataCol">
             <div className = "SensorsDataRow">
               <div className = "CO2 SensorContainer">
-                CO2 Studies have stesthown that higher concentrations of atmospheric carbon dioxide affect crops in two important ways: they boost crop yields by increasing the rate of photosynthesis, which spurs growth, and they reduce the amount of water crops lose through transpiration.
+                <div className = "SensorTitle"> CO2 </div>
+                <p className = "SensorDesc">
+                  Studies have shown that higher concentrations of atmospheric carbon dioxide affect crops in two important ways: they boost crop yields by increasing the rate of photosynthesis, which spurs growth, and they reduce the amount of water crops lose through transpiration.
+                </p>  
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.co2}
@@ -98,7 +101,10 @@ class Sensors extends Component {
                 />
               </div>
               <div className = "TVOC SensorContainer">
-                TVOC
+                <div className = "SensorTitle"> TVOC </div>
+                <p className = "SensorDesc">
+                  By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light. 
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.series}
@@ -109,7 +115,10 @@ class Sensors extends Component {
             </div>
             <div className = "SensorsDataRow">
               <div className = "Pressure SensorContainer">
-                Pressure
+                <div className = "SensorTitle"> Pressure </div>
+                <p className = "SensorDesc">
+                  Atmospheric pressure directly affects precipitation levels, oxygen levels for crop respiration, wind pattern for the transportation of pollen, heating/cooling cycles of the atmosphere, and carbon dioxide levels needed to build biomass for photosynthesis.
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.pressure}
@@ -118,7 +127,10 @@ class Sensors extends Component {
                 />
               </div>
               <div className = "Temp SensorContainer">
-                Temp
+                <div className = "SensorTitle"> Temperature </div>
+                <p className = "SensorDesc">
+                  Climate change can disrupt food availability, reduce access to food, and affect food quality. For example, projected increases in temperatures, changes in precipitation patterns, changes in extreme weather events, and reductions in water availability may all result in reduced agricultural productivity.
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.temperature}

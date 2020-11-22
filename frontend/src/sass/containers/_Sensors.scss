@@ -6,6 +6,11 @@
         margin-top: 2%;
         font-size: 2vw;
         margin-bottom: 2%;
+        background-color: map-get($theme-colors, dark);
+        color: map-get($theme-colors, light);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .SensorsDataRow {
@@ -18,11 +23,27 @@
         flex-direction: column;
     }
 
+    .SensorTitle {
+        background-color: map-get($theme-colors, dark);
+        color: map-get($theme-colors, light);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1%;
+        font-size: 1vw;
+    }
+
+    .SensorDesc {
+        font-size: 0.8vw;
+        text-align: left;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
     .SensorContainer {
         height: 40vh;
         width: 48%;
         border: 3px solid map-get($theme-colors, dark);
-        border-radius: 5%;
         margin-left: 1.5%;
         margin-bottom: 1.5%;
     }

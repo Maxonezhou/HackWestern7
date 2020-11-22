@@ -7,6 +7,7 @@
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
     "@turf/area": "^6.0.1",
+    "axios": "^0.21.0",
     "apexcharts": "^3.22.2",
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
@@ -50,5 +51,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:8000"
 }

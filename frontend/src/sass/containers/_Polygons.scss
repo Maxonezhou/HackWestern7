@@ -5,6 +5,11 @@
     .PolygonsTitle1 {
         margin-top: 2%;
         font-size: 2vw;
+        background-color: map-get($theme-colors, dark);
+        color: map-get($theme-colors, light);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .PolygonsInstructionsTitle {
