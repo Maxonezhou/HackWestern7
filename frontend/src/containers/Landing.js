@@ -20,7 +20,7 @@ class Landing extends Component {
                 <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">PerFARMance </span>
               </h1>
               <h2 className="Title2">
-                We use modern technologies to help small-scale farmers grow.
+                Data-driven agriculture for developing farms.
               </h2>
               <div className="Btn-wrap">
                 <Link to="/polygons" className="Title-Btn">
