@@ -87,6 +87,9 @@ class Sensors extends Component {
               </div>
               <div className = "TVOC SensorContainer">
                 <div className = "SensorTitle"> TVOC </div>
+                <p className = "SensorDesc">
+                  By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light 
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.tvoc}
@@ -98,6 +101,9 @@ class Sensors extends Component {
             <div className = "SensorsDataRow">
               <div className = "Pressure SensorContainer">
                 <div className = "SensorTitle"> Pressure </div>
+                <p className = "SensorDesc">
+                  Atmospheric pressure directly affects precipitation levels, oxygen levels for crop respiration, wind pattern for the transportation of pollen, heating/cooling cycles of the atmosphere, and carbon dioxide levels needed to build biomass for photosynthesis.
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.pressure}
@@ -107,6 +113,9 @@ class Sensors extends Component {
               </div>
               <div className = "Temp SensorContainer">
                 <div className = "SensorTitle"> Temperature </div>
+                <p className = "SensorDesc">
+                  Climate change can disrupt food availability, reduce access to food, and affect food quality. For example, projected increases in temperatures, changes in precipitation patterns, changes in extreme weather events, and reductions in water availability may all result in reduced agricultural productivity.
+                </p>
                 <ReactApexChart
                   options={this.state.options}
                   series={this.state.temperature}
