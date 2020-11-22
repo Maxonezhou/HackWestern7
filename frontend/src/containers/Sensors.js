@@ -8,16 +8,16 @@ class Sensors extends Component {
             Sensor Data
           </h1>
           <div className = "SensorsData">
-            <div className = "CO2">
+            <div className = "CO2 SensorContainer">
               CO2
             </div>
-            <div className = "TVOC">
+            <div className = "TVOC SensorContainer">
               TVOC
             </div>
-            <div className = "Pressure">
+            <div className = "Pressure SensorContainer">
               Pressure
             </div>
-            <div className = "Temp">
+            <div className = "Temp SensorContainer">
               Temp
             </div>
           </div>

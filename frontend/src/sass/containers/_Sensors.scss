@@ -2,4 +2,22 @@
     background-color: map-get($theme-colors, light);
     width: 100%;
     
+    .SensorsTitle1 {
+        margin-top: 2%;
+        font-size: 2vw;
+        margin-bottom: 2%;
+    }
+
+    .SensorsData {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .SensorContainer {
+        width: 23%;
+        height: 30vh;
+        border: 3px solid map-get($theme-colors, dark);
+        border-radius: 5%;
+        margin-left: 1.5%;
+    }
 }
