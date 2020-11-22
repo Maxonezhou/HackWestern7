@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import image from '../images/home.svg';
 import squareimage from '../images/squares.png'
-import squareimage2 from '../images/squares2.png'
+import squareimage2 from '../images/squares3.png'
 
 class Landing extends Component {
   render() {
@@ -17,7 +17,7 @@ class Landing extends Component {
           <div className="Home">
             <div className="Text">
               <h1 className="Title1">
-                <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">Perfarmance </span>
+                <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">PerFARMance </span>
               </h1>
               <h2 className="Title2">
                 We use modern technologies to help small-scale farmers grow.
