@@ -7,7 +7,7 @@ class Analysis extends Component {
     super(props);
 
       this.state = {
-        ultraviolet: '',
+        ultraviolets: [],
         vegetation: [],
         pressures: [],
         temps: [],
@@ -42,7 +42,7 @@ class Analysis extends Component {
           name: "vegetation",
           data: [0.005, 0.134, 0.352, 0.433, 0.211, 0.068]
       }],
-      ultraviolet : [{
+      ultraviolets : [{
         name: "ultraviolet",
         data: [0.68, 0.74, 0.67, 0.71, 0.77, 0.73]
       }]
@@ -207,7 +207,7 @@ class Analysis extends Component {
                </p>
                <ReactApexChart
                     options={this.getOptions("ultraviolet")}
-                    series={this.state.ultraviolet}
+                    series={this.state.ultraviolets}
                     type="line"
                     width="300"
                   />
