@@ -1,12 +1,12 @@
 .Analysis {
-    background-color: map-get($theme-colors, light);
+    background-color: map-get($theme-colors, light2);
     width: 100%;
 
     .AnalysisTitle1 {
         margin-top: 2%;
         font-size: 2vw;
         margin-bottom: 2%;
-        background-color: map-get($theme-colors, dark);
+        //background-color: map-get($theme-colors, dark);
         color: map-get($theme-colors, light);
         width: fit-content;
         margin-left: auto;
@@ -29,6 +29,7 @@
         margin-left: 1%;
         margin-bottom: 2%;
         border: 3px solid map-get($theme-colors, dark);
+        background-color: map-get($theme-colors, dark);
         //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     }
 
@@ -44,9 +45,10 @@
     }
 
     .AnalysisDesc {
-        font-size: 0.8vw;
+        font-size: 0.7vw;
         text-align: left;
         margin-left: 2%;
         margin-right: 2%;
+        color: map-get($theme-colors, light);
     }
 }
