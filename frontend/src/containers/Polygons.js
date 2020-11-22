@@ -7,6 +7,13 @@ class Polygons extends Component {
           <h1 className = "PolygonsTitle1">
             Draw a polygon on the map below to analyze.
           </h1>
+          <h2 className = "PolygonsInstructionsTitle">
+            Instructions
+          </h2>
+          <p className = "PolygonsInstructions">
+            Click the top button in the top left to create a polygon by clicking on the map. <br></br>
+            Click the bottom button in the top left to delete a polygon by clicking on the polygon
+          </p>
           <Map/>
       </div>
     );
