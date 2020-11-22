@@ -162,6 +162,8 @@ func getVegetation(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
 	w.WriteHeader(http.StatusOK)
 	fmt.Fprintln(w, string(responseData))
 }
@@ -224,9 +226,13 @@ func getHistoricalWeather(w http.ResponseWriter, r *http.Request) {
 		var v interface{}
 		json.Unmarshal(responseData, &v)
 		data := v.(map[string]interface{})
+		// fmt.Print(data)
+		// fmt.Println("\n\n~~~~~~\n\n")
 		for k, v := range data {
 			if k == "hourly" {
 				mainInfo := v.([]interface{})
+				// fmt.Println(mainInfo)
+				// fmt.Println("\n\n~~~~~~\n\n")
 				historicalData = append(historicalData, mainInfo)
 			}
 		}
