@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import ApexChart from "../components/Chart";
 import firebase from '../firebase';
+import ApexCharts from "apexcharts";
 import ReactApexChart from "react-apexcharts";
 class Sensors extends Component {
   constructor(props) {
     super(props);
 
       this.state = {
-        options: {
-          chart: {
-            id: "co2-bar"
-          },
-          xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-          }
-        },
         temperature: [{
           name: "temp",
           data: []
@@ -31,56 +24,63 @@ class Sensors extends Component {
           name: "pressure",
           data: []
         }],
-        series: [
-          {
-            name: "series-1",
-            data: [30, 40, 45, 50, 49, 60, 70, 91]
-          }
-        ]
       };
   }
 
 
   componentDidMount(){
-    // console.log();
     const arduinoRef = firebase.database().ref('Arduino Data');
     arduinoRef.limitToLast(1).on('value', querySnapshot => {
-      console.log("test")
       const data = querySnapshot.val();
       const { temperature, tvoc, co2, pressure } = this.state; 
-      const newTempData = this.state.series[0].data;
-      const newCo2 = this.state.co2;
       for( const [key, value] of Object.entries(data)) {
-        // console.log(value);
-        newTempData.push(parseInt(value.temp))
-        // temperature[0].data.push(parseInt(value.temp));
-        // temperature.slice(Math.max(temperature.length - 5, 0));
+        const length = temperature[0].data.length;
+        temperature[0].data.push(parseInt(value.temp));
         tvoc[0].data.push(parseInt(value.tvoc));
-        newCo2[0].data.push(parseInt(value.c02));
+        co2[0].data.push(parseInt(value.c02));
         pressure[0].data.push(parseInt(value.pressure));
+        if (length == 10) {
+          temperature[0].data.shift();
+          co2[0].data.shift();
+          tvoc[0].data.shift();
+          pressure[0].data.shift();
+        }
       }
-      // console.log(tempera/ture);
-      console.log(newCo2)
-      // this.setState({
-      //   temperature: newTemp, 
-      //   tvoc, 
-      //   co2: newCo2,
-      //   pressure
-      // })
       this.setState({
-        series: [{
-          ...this.state.series[0],
-          data: newTempData
-        }]
+        temperature, 
+        tvoc, 
+        co2,
+        pressure
       })
-      // temperature.push(data.)  
-        // console.log(querySnapshot.val());
+      ApexCharts.exec('temp', 'updateSeries', temperature);
+      ApexCharts.exec('tvoc', 'updateSeries', tvoc);
+      ApexCharts.exec('co2', 'updateSeries', co2);
+      ApexCharts.exec('pressure', 'updateSeries', pressure);
     })
+  }
+
+  getOptions = (id) => {
+    return {
+      chart: {
+        id: id,
+        height: 350,
+        type: 'line',
+        animations: {
+          enabled: true,
+          easing: 'linear',
+          dynamicAnimation: {
+            speed: 1000
+          }
+        },
+        legend: {
+          show: false
+        }
+      },
+    }
   }
   render() {
     const { temperature, tvoc, co2, pressure } = this.state;
-    console.log("fsfsf")
-    console.log(this.state.co2)
+
     return (
       <div className = "Sensors">
           <h1 className = "SensorsTitle1">
@@ -94,7 +94,7 @@ class Sensors extends Component {
                   Studies have shown that higher concentrations of atmospheric carbon dioxide affect crops in two important ways: they boost crop yields by increasing the rate of photosynthesis, which spurs growth, and they reduce the amount of water crops lose through transpiration.
                 </p>  
                 <ReactApexChart
-                  options={this.state.options}
+                  options={this.getOptions("co2")}
                   series={this.state.co2}
                   type="line"
                   width="300"
@@ -106,8 +106,8 @@ class Sensors extends Component {
                   By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light. 
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
-                  series={this.state.series}
+                  options={this.getOptions("tvoc")}
+                  series={this.state.tvoc}
                   type="line"
                   width="300"
                 />
@@ -120,7 +120,7 @@ class Sensors extends Component {
                   Atmospheric pressure directly affects precipitation levels, oxygen levels for crop respiration, wind pattern for the transportation of pollen, heating/cooling cycles of the atmosphere, and carbon dioxide levels needed to build biomass for photosynthesis.
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
+                  options={this.getOptions("pressure")}
                   series={this.state.pressure}
                   type="line"
                   width="300"
@@ -132,7 +132,7 @@ class Sensors extends Component {
                   Climate change can disrupt food availability, reduce access to food, and affect food quality. For example, projected increases in temperatures, changes in precipitation patterns, changes in extreme weather events, and reductions in water availability may all result in reduced agricultural productivity.
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
+                  options={this.getOptions("temp")}
                   series={this.state.temperature}
                   type="line"
                   width="300"

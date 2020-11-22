@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Nav } from "react-bootstrap";
 
-import logo from '../images/logo.png';
+import logo from '../images/logo.svg';
 
 class Sidebar extends Component {
     active = (pathName) => {
