@@ -7,7 +7,7 @@
         font-size: 2vw;
         margin-bottom: 2%;
         //background-color: map-get($theme-colors, dark);
-        color: map-get($theme-colors, light);
+        color: map-get($theme-colors, light3);
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
@@ -35,7 +35,7 @@
 
     .AnalysisTitle {
         background-color: map-get($theme-colors, dark);
-        color: map-get($theme-colors, light);
+        color: map-get($theme-colors, light3);
         width: fit-content;
         margin-left: auto;
         margin-right: auto;
