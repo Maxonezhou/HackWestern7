@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import image from '../images/home.svg';
 import dotimage from '../images/dots.png'
+import dotimage4 from '../images/dots4.png'
 
 class Landing extends Component {
   render() {
@@ -11,7 +12,7 @@ class Landing extends Component {
           <div className="Image-wrap">
             <img className="Home-image" src={image} />
             <img className="dot-image" src={dotimage} />
-            <img className="dot-image2" src={dotimage} />
+            <img className="dot-image4" src={dotimage4} />
           </div>
           <div className="Home">
             <div className="Text">

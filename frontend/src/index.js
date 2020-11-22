@@ -6,6 +6,7 @@ import Landing from './containers/Landing';
 import Layout from './containers/Layout';
 import Polygons from './containers/Polygons';
 import Sensors from './containers/Sensors';
+import Analysis from './containers/Analysis';
 import reportWebVitals from './reportWebVitals';
 import "./sass/__index.scss";
 
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Switch>
           <Route exact path="/polygons" render={(props) => <Layout childComponent={<Polygons {...props}/>} {...props} />}/>
           <Route exact path="/sensors" render={(props) => <Layout childComponent={<Sensors {...props}/>} {...props} />}/>
+          <Route exact path="/analysis" render={(props) => <Layout childComponent={<Analysis {...props}/>} {...props} />}/>
           <Route path="/" component={Landing} />
         </Switch>
       </App>
