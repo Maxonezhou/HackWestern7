@@ -17,7 +17,7 @@ class Landing extends Component {
           <div className="Home">
             <div className="Text">
               <h1 className="Title1">
-                <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">Perfarmance </span>
+                <span className="Welcome">Welcome</span> to Peak <span className = "Perfarmance">PerFARMance </span>
               </h1>
               <h2 className="Title2">
                 We use modern technologies to help small-scale farmers grow.
