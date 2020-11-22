@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import ApexChart from "../components/Chart";
 import firebase from '../firebase';
+import ApexCharts from "apexcharts";
 import ReactApexChart from "react-apexcharts";
 class Sensors extends Component {
   constructor(props) {
     super(props);
 
       this.state = {
-        options: {
-          chart: {
-            id: "co2-bar"
-          },
-          xaxis: {
-            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
-          }
-        },
         temperature: [{
           name: "temp",
           data: []
@@ -36,36 +29,64 @@ class Sensors extends Component {
 
 
   componentDidMount(){
-    // console.log();
     const arduinoRef = firebase.database().ref('Arduino Data');
     arduinoRef.limitToLast(1).on('value', querySnapshot => {
       const data = querySnapshot.val();
       const { temperature, tvoc, co2, pressure } = this.state; 
-      const newTemp = this.state.temperature;
       for( const [key, value] of Object.entries(data)) {
-        // console.log(value);
-        newTemp[0].data.push(parseInt(value.temp))
-        // temperature[0].data.push(parseInt(value.temp));
-        // temperature.slice(Math.max(temperature.length - 5, 0));
+        const length = temperature[0].data.length;
+        temperature[0].data.push(parseInt(value.temp));
         tvoc[0].data.push(parseInt(value.tvoc));
         co2[0].data.push(parseInt(value.c02));
         pressure[0].data.push(parseInt(value.pressure));
+        if (length == 10) {
+          temperature[0].data.shift();
+          co2[0].data.shift();
+          tvoc[0].data.shift();
+          pressure[0].data.shift();
+        }
       }
-      // console.log(tempera/ture);
       this.setState({
-        temperature: newTemp, 
+        temperature, 
         tvoc, 
-        co2: co2,
+        co2,
         pressure
       })
-      // temperature.push(data.)  
-        // console.log(querySnapshot.val());
+      ApexCharts.exec('temp', 'updateSeries', temperature);
+      ApexCharts.exec('tvoc', 'updateSeries', tvoc);
+      ApexCharts.exec('co2', 'updateSeries', co2);
+      ApexCharts.exec('pressure', 'updateSeries', pressure);
     })
+  }
+
+  getOptions = (id) => {
+    return {
+      chart: {
+        id: id,
+        height: 350,
+        type: 'line',
+        colors: ['#546E7A', ''],
+        xaxis: {
+          labels: {
+            show: false
+          }
+        },
+        yaxis: {
+          labels: {
+            style: {
+              colors: ['green']
+            }
+          }
+        },
+        legend: {
+          show: false
+        }
+      },
+    }
   }
   render() {
     const { temperature, tvoc, co2, pressure } = this.state;
-    console.log("fsfsf")
-    
+
     return (
       <div className = "Sensors">
           <h1 className = "SensorsTitle1">
@@ -79,11 +100,12 @@ class Sensors extends Component {
                   Studies have shown that higher concentrations of atmospheric carbon dioxide affect crops in two important ways: they boost crop yields by increasing the rate of photosynthesis, which spurs growth, and they reduce the amount of water crops lose through transpiration.
                 </p>  
                 <ReactApexChart
-                  options={this.state.options}
-                  series={this.state.co2}
+                  options={this.getOptions("co2")}
+                  series={co2}
                   type="line"
                   width="300"
                 />
+                  {co2[0].data.slice(-1)[0]}
               </div>
               <div className = "TVOC SensorContainer">
                 <div className = "SensorTitle"> TVOC </div>
@@ -91,11 +113,12 @@ class Sensors extends Component {
                   By mediating competition between plant species, VOCs may allow to control weeds and thus enhance crop productivity through a more efficient acquisition of nutrients, water, and light. 
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
-                  series={this.state.tvoc}
+                  options={this.getOptions("tvoc")}
+                  series={tvoc}
                   type="line"
                   width="300"
                 />
+                {tvoc[0].data.slice(-1)[0]}
               </div>
             </div>
             <div className = "SensorsDataRow">
@@ -105,11 +128,12 @@ class Sensors extends Component {
                   Atmospheric pressure directly affects precipitation levels, oxygen levels for crop respiration, wind pattern for the transportation of pollen, heating/cooling cycles of the atmosphere, and carbon dioxide levels needed to build biomass for photosynthesis.
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
-                  series={this.state.pressure}
+                  options={this.getOptions("pressure")}
+                  series={pressure}
                   type="line"
                   width="300"
                 />
+                {pressure[0].data.slice(-1)[0]}
               </div>
               <div className = "Temp SensorContainer">
                 <div className = "SensorTitle"> Temperature </div>
@@ -117,11 +141,12 @@ class Sensors extends Component {
                   Climate change can disrupt food availability, reduce access to food, and affect food quality. For example, projected increases in temperatures, changes in precipitation patterns, changes in extreme weather events, and reductions in water availability may all result in reduced agricultural productivity.
                 </p>
                 <ReactApexChart
-                  options={this.state.options}
-                  series={this.state.temperature}
+                  options={this.getOptions("temp")}
+                  series={temperature}
                   type="line"
                   width="300"
                 />
+                {temperature[0].data.slice(-1)[0]}
               </div>
             </div>
           </div>

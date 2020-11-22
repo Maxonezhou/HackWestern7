@@ -1,12 +1,12 @@
 .Sensors {
-    background-color: map-get($theme-colors, light);
+    background-color: map-get($theme-colors, light2);
     width: 100%;
     
     .SensorsTitle1 {
         margin-top: 2%;
         font-size: 2vw;
         margin-bottom: 2%;
-        background-color: map-get($theme-colors, dark);
+        //background-color: map-get($theme-colors, dark);
         color: map-get($theme-colors, light);
         width: fit-content;
         margin-left: auto;
@@ -24,7 +24,7 @@
     }
 
     .SensorTitle {
-        background-color: map-get($theme-colors, dark);
+        //background-color: map-get($theme-colors, dark);
         color: map-get($theme-colors, light);
         width: fit-content;
         margin-left: auto;
@@ -38,12 +38,14 @@
         text-align: left;
         margin-left: 1%;
         margin-right: 1%;
+        color: map-get($theme-colors, light3);
     }
 
     .SensorContainer {
         height: 40vh;
         width: 48%;
         border: 3px solid map-get($theme-colors, dark);
+        background-color: map-get($theme-colors, dark);
         margin-left: 1.5%;
         margin-bottom: 1.5%;
     }

@@ -5,7 +5,7 @@ import {Editor, DrawPolygonMode, EditingMode} from 'react-map-gl-draw';
 
 import ControlPanel from './control-panel';
 import {getFeatureStyle, getEditHandleStyle} from './style';
-
+import axios from 'axios';
 const TOKEN = 'pk.eyJ1IjoidHBpbnRvNyIsImEiOiJja2JicDAyMWUwM2VkMnpxdmM4ejhpdThwIn0.JXda4GyCIuQfTE1TAsLorg'; // Set your mapbox token here
 
 export default class Map extends Component {
@@ -38,6 +38,21 @@ export default class Map extends Component {
     }
   };
 
+  _onAdd = () => {
+    const selectedIndex = this.state.selectedFeatureIndex;
+    if (selectedIndex !== null && selectedIndex >= 0) {
+        const coordinates = this._editorRef.getFeatures(selectedIndex)[0].geometry.coordinates[0];
+        axios({
+            method: 'post',
+            url: "http://localhost:8000/polygon/create",
+            data: {
+                coordinates: coordinates
+            }
+        });
+    }
+      
+  }
+
   _onUpdate = ({editType}) => {
     if (editType === 'addFeature') {
       this.setState({
@@ -55,6 +70,11 @@ export default class Map extends Component {
             className="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_polygon"
             title="Polygon tool (p)"
             onClick={() => this.setState({mode: new DrawPolygonMode()})}
+          />
+          <button
+            className="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_polygon"
+            title="Add polygon"
+            onClick={this._onAdd}
           />
           <button
             className="mapbox-gl-draw_ctrl-draw-btn mapbox-gl-draw_trash"
