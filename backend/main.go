@@ -24,8 +24,7 @@ type RequestBody struct {
 	} `json:"geo_json"`
 }
 
-// var apiKey = "39a43ecea353c7bd81d1339b0e2b6ba2"
-var apiKey = "6aa7e70b342a09aada287ee72faa4517"
+var apiKey = ""
 
 func createPolygonID(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
